@@ -1,0 +1,14 @@
+-- Automated Gas Pump Made by UFMG Students
+-- 		-Daniel Benicá & Gustavo Gomes & Paulo Santos
+
+library ieee;
+use ieee.std_logic_1164.all;
+
+
+
+
+entity gas_pump is 
+	port(
+	
+	);
+end gas_pump
