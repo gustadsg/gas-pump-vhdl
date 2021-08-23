@@ -12,7 +12,7 @@ entity gas_pump is
 	port(
 		clock: in std_logic;
 		btn_continue: in std_logic;
-		fuel_type: in std_logic_vector(2 downto 0);
+		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
 		pump: out std_logic := '0'
@@ -25,17 +25,18 @@ architecture behaviour of gas_pump is
 type states is (idle, payment, fuel_selection, fueling, comparator, give_change);
 type fuel is array (0 to 2) of std_logic_vector(7 downto 0);
 signal current_state : states := idle;	
-
+signal teste : std_logic := '0';
 	
 	begin
 		
-		shrek : process(clock, btn_continue, fuel_type, credit_input, current_state)
+		shrek : process (clock, btn_continue, fuel_type, credit_input, current_state)
 		
 				variable current_credit : std_logic_vector(7 downto 0); 	
+				variable aux_current_credit : std_logic_vector(23 downto 0);
 				variable fuel_price : fuel;
 				variable selected_fuel : std_logic_vector(7 downto 0);
-				variable flow_rate : integer := 20;
-				variable verification_period : time := 250 ms;
+				variable flow_rate : std_logic_vector(7 downto 0) := "00010100";
+				variable verification_period : std_logic_vector(7 downto 0) := "11111010";
 				
 				begin	
 				
@@ -83,13 +84,14 @@ signal current_state : states := idle;
 								
 							when fueling =>
 								pump <= '1';
-								wait for verification_period;
+								--wait until teste = '1';
 								current_state <= comparator;
 							
 							
 							
 							when comparator => 
-								--current_credit := std_logic_vector(to_integer(unsigned(current_credit)) - ((flow_rate*to_integer(verification_period)*to_integer(unsigned(selected_fuel)))/1000);
+								aux_current_credit := std_logic_vector((unsigned(current_credit)) - ((unsigned(flow_rate)*unsigned(verification_period)*unsigned(selected_fuel))/1000));
+								current_credit := aux_current_credit(7 downto 0);
 								if(btn_continue = '1') then
 									pump <= '0';
 									current_state <= give_change;
@@ -113,4 +115,16 @@ signal current_state : states := idle;
 					
 
 		end process shrek;
+		
+		
+		aux : process(clock)
+			variable teste2 : integer := 250;
+			begin
+				teste2 := teste2 - 1;
+				if(teste2 = 0) then	
+					teste <= '1';
+				end if;
+			end process aux;
+			
+			
 	end behaviour;
