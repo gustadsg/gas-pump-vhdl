@@ -1,5 +1,5 @@
 Flow report for gas-pump
-Mon Aug 23 16:31:32 2021
+Tue Aug 24 16:42:08 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,7 +40,7 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Mon Aug 23 16:31:32 2021           ;
+; Flow Status                        ; Successful - Tue Aug 24 16:42:08 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; gas-pump                                        ;
 ; Top-level Entity Name              ; gas_pump                                        ;
@@ -48,7 +48,7 @@ applicable agreement for further details.
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
 ; Total logic elements               ; 196                                             ;
-;     Total combinational functions  ; 194                                             ;
+;     Total combinational functions  ; 195                                             ;
 ;     Dedicated logic registers      ; 26                                              ;
 ; Total registers                    ; 26                                              ;
 ; Total pins                         ; 21                                              ;
@@ -64,7 +64,7 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/23/2021 16:31:29 ;
+; Start date & time ; 08/24/2021 16:42:05 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; gas-pump            ;
 +-------------------+---------------------+
@@ -75,7 +75,7 @@ applicable agreement for further details.
 +-------------------------------------+-------------------------------+---------------+-------------+----------------+
 ; Assignment Name                     ; Value                         ; Default Value ; Entity Name ; Section Id     ;
 +-------------------------------------+-------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 9447189716731.162974708903008 ; --            ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 9447189716731.162983412520284 ; --            ; --          ; --             ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                          ; --            ; --          ; eda_simulation ;
 ; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)        ; <None>        ; --          ; --             ;
 ; MAX_CORE_JUNCTION_TEMP              ; 85                            ; --            ; --          ; --             ;
@@ -93,8 +93,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:04     ; 1.0                     ; 4653 MB             ; 00:00:03                           ;
-; Total                ; 00:00:04     ; --                      ; --                  ; 00:00:03                           ;
+; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 4656 MB             ; 00:00:03                           ;
+; Total                ; 00:00:03     ; --                      ; --                  ; 00:00:03                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

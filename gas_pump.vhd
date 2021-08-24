@@ -25,11 +25,11 @@ architecture behaviour of gas_pump is
 type states is (idle, payment, fuel_selection, fueling, comparator, give_change);
 type fuel is array (0 to 2) of std_logic_vector(7 downto 0);
 signal current_state : states := idle;	
-signal teste : std_logic := '0';
+signal comparator_clock : std_logic := '0';
 	
 	begin
 		
-		shrek : process (clock, btn_continue, fuel_type, credit_input, current_state)
+		main : process (clock, btn_continue, fuel_type, credit_input, current_state)
 		
 				variable current_credit : std_logic_vector(7 downto 0); 	
 				variable aux_current_credit : std_logic_vector(23 downto 0);
@@ -84,9 +84,9 @@ signal teste : std_logic := '0';
 								
 							when fueling =>
 								pump <= '1';
-								--wait until teste = '1';
+								if(comparator_clock = '1') then
 								current_state <= comparator;
-							
+								end if;
 							
 							
 							when comparator => 
@@ -114,16 +114,13 @@ signal teste : std_logic := '0';
 					end if;
 					
 
-		end process shrek;
+		end process main;
 		
 		
-		aux : process(clock)
-			variable teste2 : integer := 250;
+		aux : process(comparator_clock)
 			begin
-				teste2 := teste2 - 1;
-				if(teste2 = 0) then	
-					teste <= '1';
-				end if;
+				comparator_clock <= not comparator_clock after 250 ms;
+				
 			end process aux;
 			
 			

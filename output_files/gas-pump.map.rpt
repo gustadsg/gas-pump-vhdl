@@ -1,5 +1,5 @@
 Analysis & Synthesis report for gas-pump
-Mon Aug 23 16:31:32 2021
+Tue Aug 24 16:42:08 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -14,15 +14,16 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
   6. Analysis & Synthesis Resource Usage Summary
   7. Analysis & Synthesis Resource Utilization by Entity
   8. State Machine - |gas_pump|current_state
-  9. Registers Removed During Synthesis
- 10. Removed Registers Triggering Further Register Optimizations
- 11. General Register Statistics
- 12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
- 14. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
- 15. lpm_mult Parameter Settings by Entity Instance
- 16. Elapsed Time Per Partition
- 17. Analysis & Synthesis Messages
+  9. Logic Cells Representing Combinational Loops
+ 10. Registers Removed During Synthesis
+ 11. Removed Registers Triggering Further Register Optimizations
+ 12. General Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for Inferred Entity Instance: lpm_mult:Mult0
+ 15. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 16. lpm_mult Parameter Settings by Entity Instance
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
 
 
 
@@ -48,13 +49,13 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Mon Aug 23 16:31:32 2021           ;
+; Analysis & Synthesis Status        ; Successful - Tue Aug 24 16:42:08 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; gas-pump                                        ;
 ; Top-level Entity Name              ; gas_pump                                        ;
 ; Family                             ; Cyclone II                                      ;
 ; Total logic elements               ; 196                                             ;
-;     Total combinational functions  ; 194                                             ;
+;     Total combinational functions  ; 195                                             ;
 ;     Dedicated logic registers      ; 26                                              ;
 ; Total registers                    ; 26                                              ;
 ; Total pins                         ; 21                                              ;
@@ -202,14 +203,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 ; Estimated Total logic elements              ; 196                                                                                                                          ;
 ;                                             ;                                                                                                                              ;
-; Total combinational functions               ; 194                                                                                                                          ;
+; Total combinational functions               ; 195                                                                                                                          ;
 ; Logic element usage by number of LUT inputs ;                                                                                                                              ;
-;     -- 4 input functions                    ; 44                                                                                                                           ;
+;     -- 4 input functions                    ; 45                                                                                                                           ;
 ;     -- 3 input functions                    ; 71                                                                                                                           ;
 ;     -- <=2 input functions                  ; 79                                                                                                                           ;
 ;                                             ;                                                                                                                              ;
 ; Logic elements by mode                      ;                                                                                                                              ;
-;     -- normal mode                          ; 139                                                                                                                          ;
+;     -- normal mode                          ; 140                                                                                                                          ;
 ;     -- arithmetic mode                      ; 55                                                                                                                           ;
 ;                                             ;                                                                                                                              ;
 ; Total registers                             ; 26                                                                                                                           ;
@@ -220,8 +221,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 0                                                                                                                            ;
 ; Maximum fan-out node                        ; lpm_divide:Div0|lpm_divide_sfm:auto_generated|sign_div_unsign_6nh:divider|alt_u_div_e5f:divider|add_sub_16_result_int[11]~16 ;
 ; Maximum fan-out                             ; 28                                                                                                                           ;
-; Total fan-out                               ; 616                                                                                                                          ;
-; Average fan-out                             ; 2.55                                                                                                                         ;
+; Total fan-out                               ; 618                                                                                                                          ;
+; Average fan-out                             ; 2.54                                                                                                                         ;
 +---------------------------------------------+------------------------------------------------------------------------------------------------------------------------------+
 
 
@@ -230,7 +231,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Library Name ;
 +----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
-; |gas_pump                              ; 194 (42)          ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |gas_pump                                                                                                 ; work         ;
+; |gas_pump                              ; 195 (43)          ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 21   ; 0            ; |gas_pump                                                                                                 ; work         ;
 ;    |lpm_divide:Div0|                   ; 144 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0                                                                                 ; work         ;
 ;       |lpm_divide_sfm:auto_generated|  ; 144 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0|lpm_divide_sfm:auto_generated                                                   ; work         ;
 ;          |sign_div_unsign_6nh:divider| ; 144 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0|lpm_divide_sfm:auto_generated|sign_div_unsign_6nh:divider                       ; work         ;
@@ -256,50 +257,61 @@ Encoding Type:  One-Hot
 +------------------------------+---------------------------+--------------------------+-----------------------+------------------------------+-----------------------+--------------------+
 
 
++------------------------------------------------------------+
+; Logic Cells Representing Combinational Loops               ;
++--------------------------------------------------------+---+
+; Logic Cell Name                                        ;   ;
++--------------------------------------------------------+---+
+; current_state~15                                       ;   ;
+; Number of logic cells representing combinational loops ; 1 ;
++--------------------------------------------------------+---+
+Note: All cells listed above may not be present at the end of synthesis due to various synthesis optimizations.
+
+
 +---------------------------------------------------------------------------------+
 ; Registers Removed During Synthesis                                              ;
 +----------------------------------------+----------------------------------------+
 ; Register name                          ; Reason for Removal                     ;
 +----------------------------------------+----------------------------------------+
-; \shrek:fuel_price[2][0]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][1]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][2]                ; Stuck at VCC due to stuck port data_in ;
-; \shrek:fuel_price[2][3]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][4]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][5]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][6]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[2][7]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][0]                ; Stuck at VCC due to stuck port data_in ;
-; \shrek:fuel_price[1][1]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][2]                ; Stuck at VCC due to stuck port data_in ;
-; \shrek:fuel_price[1][3]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][4]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][5]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][6]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[1][7]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][0]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][1]                ; Stuck at VCC due to stuck port data_in ;
-; \shrek:fuel_price[0][2]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][3]                ; Stuck at VCC due to stuck port data_in ;
-; \shrek:fuel_price[0][4]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][5]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][6]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:fuel_price[0][7]                ; Stuck at GND due to stuck port data_in ;
-; \shrek:selected_fuel[3]                ; Merged with \shrek:selected_fuel[1]    ;
-; \shrek:selected_fuel[5..7]             ; Merged with \shrek:selected_fuel[4]    ;
-; \shrek:selected_fuel[4]                ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][0]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][1]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][2]                 ; Stuck at VCC due to stuck port data_in ;
+; \main:fuel_price[2][3]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][4]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][5]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][6]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[2][7]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][0]                 ; Stuck at VCC due to stuck port data_in ;
+; \main:fuel_price[1][1]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][2]                 ; Stuck at VCC due to stuck port data_in ;
+; \main:fuel_price[1][3]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][4]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][5]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][6]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[1][7]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][0]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][1]                 ; Stuck at VCC due to stuck port data_in ;
+; \main:fuel_price[0][2]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][3]                 ; Stuck at VCC due to stuck port data_in ;
+; \main:fuel_price[0][4]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][5]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][6]                 ; Stuck at GND due to stuck port data_in ;
+; \main:fuel_price[0][7]                 ; Stuck at GND due to stuck port data_in ;
+; \main:selected_fuel[3]                 ; Merged with \main:selected_fuel[1]     ;
+; \main:selected_fuel[5..7]              ; Merged with \main:selected_fuel[4]     ;
+; \main:selected_fuel[4]                 ; Stuck at GND due to stuck port data_in ;
 ; Total Number of Removed Registers = 29 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------+
-; Removed Registers Triggering Further Register Optimizations                                  ;
-+-------------------------+---------------------------+----------------------------------------+
-; Register name           ; Reason for Removal        ; Registers Removed due to This Register ;
-+-------------------------+---------------------------+----------------------------------------+
-; \shrek:fuel_price[2][4] ; Stuck at GND              ; \shrek:selected_fuel[4]                ;
-;                         ; due to stuck port data_in ;                                        ;
-+-------------------------+---------------------------+----------------------------------------+
++---------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                 ;
++------------------------+---------------------------+----------------------------------------+
+; Register name          ; Reason for Removal        ; Registers Removed due to This Register ;
++------------------------+---------------------------+----------------------------------------+
+; \main:fuel_price[2][4] ; Stuck at GND              ; \main:selected_fuel[4]                 ;
+;                        ; due to stuck port data_in ;                                        ;
++------------------------+---------------------------+----------------------------------------+
 
 
 +------------------------------------------------------+
@@ -317,14 +329,14 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                   ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output         ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
-; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |gas_pump|\shrek:current_credit[0] ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |gas_pump|selected_fuel            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |gas_pump|\main:current_credit[0] ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |gas_pump|selected_fuel           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------+
 
 
 +-----------------------------------------------------------------------------------+
@@ -410,7 +422,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:02     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -420,14 +432,13 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Mon Aug 23 16:31:28 2021
+    Info: Processing started: Tue Aug 24 16:42:04 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gas-pump -c gas-pump
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file gas_pump.vhd
     Info (12022): Found design unit 1: gas_pump-behaviour
     Info (12023): Found entity 1: gas_pump
 Info (12127): Elaborating entity "gas_pump" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at gas_pump.vhd(28): object "teste" assigned a value but never read
 Warning (10542): VHDL Variable Declaration warning at gas_pump.vhd(38): used initial value expression for variable "flow_rate" because variable was never assigned a value
 Warning (10542): VHDL Variable Declaration warning at gas_pump.vhd(39): used initial value expression for variable "verification_period" because variable was never assigned a value
 Info (278001): Inferred 2 megafunctions from design logic
@@ -471,10 +482,10 @@ Info (21057): Implemented 218 device resources after synthesis - the final resou
     Info (21058): Implemented 12 input pins
     Info (21059): Implemented 9 output pins
     Info (21061): Implemented 197 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 4 warnings
-    Info: Peak virtual memory: 4653 megabytes
-    Info: Processing ended: Mon Aug 23 16:31:33 2021
-    Info: Elapsed time: 00:00:05
-    Info: Total CPU time (on all processors): 00:00:04
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 3 warnings
+    Info: Peak virtual memory: 4656 megabytes
+    Info: Processing ended: Tue Aug 24 16:42:08 2021
+    Info: Elapsed time: 00:00:04
+    Info: Total CPU time (on all processors): 00:00:03
 
 
