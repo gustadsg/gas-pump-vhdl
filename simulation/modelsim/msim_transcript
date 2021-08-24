@@ -42,4 +42,4 @@
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 6000 ns
+# run 50000 ns

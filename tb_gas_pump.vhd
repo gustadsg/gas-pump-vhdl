@@ -12,12 +12,14 @@ end tb_gas_pump;
 architecture test_bench of tb_gas_pump is
 component gas_pump is
 	port(
-		clock: in std_logic;
+		clock: in std_logic ;
 		btn_continue: in std_logic;
 		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
+		pump: out std_logic := '0';
+		out_current_state: out std_logic_vector(3 downto 0);
+		credit_output: out std_logic_vector(7 downto 0)
 	
 	);
 end component;
@@ -30,7 +32,8 @@ signal fuel_type:  std_logic_vector(1 downto 0);
 signal credit_input:  std_logic_vector(7 downto 0);
 signal change:  std_logic_vector(7 downto 0) := x"00";
 signal pump:  std_logic := '0';
-
+signal out_current_state: std_logic_vector(3 downto 0);
+signal credit_output: std_logic_vector(7 downto 0);
 
 begin 
 	instance_gas_pump : gas_pump port map (
@@ -39,11 +42,13 @@ begin
 		fuel_type => fuel_type ,
 		credit_input => credit_input,
 		change => change,
-		pump => pump
+		pump => pump,
+		out_current_state => out_current_state,
+		credit_output => credit_output
 	
 	);
 	
-	clock <= not clock after 25 ns;
+	clock <= '0',not clock after 25 ns;
 	btn_continue <= '1' after 30 ns,'0' after 35 ns,'1' after 1000 ns, '0' after 1005 ns,'1' after 2000 ns, '0' after 2005 ns,'1' after 3000 ns, '0' after 3005 ns,'1' after 4000 ns, '0' after 4005 ns,'1' after 5000 ns, '0' after 5005 ns;
 	fuel_type <= "01" after 30 ns;
 	credit_input <= "00100010" after 30 ns;
