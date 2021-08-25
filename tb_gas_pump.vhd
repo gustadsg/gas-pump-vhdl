@@ -17,8 +17,8 @@ component gas_pump is
 		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
-	
+		pump: out std_logic := '0';
+		credit_output: out std_logic_vector(7 downto 0)
 	);
 end component;
 
@@ -30,6 +30,7 @@ signal fuel_type:  std_logic_vector(1 downto 0);
 signal credit_input:  std_logic_vector(7 downto 0);
 signal change:  std_logic_vector(7 downto 0) := x"00";
 signal pump:  std_logic := '0';
+signal credit_output:  std_logic_vector(7 downto 0);
 
 
 begin 
@@ -39,8 +40,8 @@ begin
 		fuel_type => fuel_type ,
 		credit_input => credit_input,
 		change => change,
-		pump => pump
-	
+		pump => pump,
+		credit_output => credit_output
 	);
 	
 	clock <= not clock after 25 ns;

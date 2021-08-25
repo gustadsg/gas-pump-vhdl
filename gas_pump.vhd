@@ -15,7 +15,8 @@ entity gas_pump is
 		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
+		pump: out std_logic := '0';
+		credit_output: out std_logic_vector(7 downto 0)
 	);
 end gas_pump;
 
@@ -92,6 +93,9 @@ signal comparator_clock : std_logic := '0';
 							when comparator => 
 								aux_current_credit := std_logic_vector((unsigned(current_credit)) - 1);
 								current_credit := aux_current_credit(7 downto 0);
+
+								credit_output <= current_credit;
+								
 								if(btn_continue = '1') then
 									pump <= '0';
 									current_state <= give_change;
