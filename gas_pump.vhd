@@ -58,12 +58,12 @@ signal comparator_clock : std_logic := '0';
 								
 							
 							when payment =>
-								current_credit := credit_input;
-								if(btn_continue = '1') then	
-									current_state <= fuel_selection;
-								end if;
-						
-						
+							if(btn_continue = '1') then	
+							current_state <= fuel_selection;
+							end if;
+							
+							
+
 						
 							when fuel_selection =>
 								if(fuel_type = "00") then 
@@ -73,9 +73,11 @@ signal comparator_clock : std_logic := '0';
 									selected_fuel := fuel_price(1);
 								
 								elsif(fuel_type = "10") then 
-									selected_fuel := fuel_price(2);
-									
+									selected_fuel := fuel_price(2);									
 								end if;
+
+								current_credit := credit_input / (((unsigned(flow_rate)*unsigned(verification_period)*unsigned(selected_fuel))/1000);
+
 								if(btn_continue = '1' and selected_fuel /= x"11") then 
 									current_state <= fueling;
 								end if;
@@ -84,13 +86,11 @@ signal comparator_clock : std_logic := '0';
 								
 							when fueling =>
 								pump <= '1';
-								if(comparator_clock = '1') then
-								current_state <= comparator;
-								end if;
+								current_state <= comparator after 250 ns;
 							
 							
 							when comparator => 
-								aux_current_credit := std_logic_vector((unsigned(current_credit)) - ((unsigned(flow_rate)*unsigned(verification_period)*unsigned(selected_fuel))/1000));
+								aux_current_credit := std_logic_vector((unsigned(current_credit)) - 1);
 								current_credit := aux_current_credit(7 downto 0);
 								if(btn_continue = '1') then
 									pump <= '0';
@@ -101,27 +101,19 @@ signal comparator_clock : std_logic := '0';
 									current_state <= idle;
 									
 								else
-									current_state <= fueling;
+									current_state <= fueling after 250 ns;
 									
 								end if;
 								
 								
 								
 							when give_change =>
-								change <= current_credit;
+								change <= current_credit * (((unsigned(flow_rate)*unsigned(verification_period)*unsigned(selected_fuel))/1000);
 								current_state <= idle;
 						end case;
 					end if;
 					
 
-		end process main;
-		
-		
-		aux : process(comparator_clock)
-			begin
-				comparator_clock <= not comparator_clock after 250 ms;
-				
-			end process aux;
-			
+		end process main;		
 			
 	end behaviour;
