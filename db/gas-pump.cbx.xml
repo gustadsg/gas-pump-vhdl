@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
 <LOG_ROOT>
 	<PROJECT NAME="gas-pump">
-		<CBX_INST_ENTRY INSTANCE_NAME="|gas_pump|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_sfm.tdf"/>
 	</PROJECT>
 </LOG_ROOT>

@@ -4,7 +4,7 @@ K3
 cModel Technology
 Z0 dC:\Users\danie\OneDrive\햞ea de Trabalho\Lab de SD\gas-pump-vhdl\simulation\modelsim
 Egas_pump
-Z1 w1629834122
+Z1 w1630349197
 Z2 DPx4 ieee 11 numeric_std 0 22 O3PF8EB`?j9=z7KT`fn941
 Z3 DPx3 std 6 textio 0 22 5>J:;AW>W0[[dW0I6EN1Q0
 Z4 DPx4 ieee 14 std_logic_1164 0 22 5=aWaoGZSMWIcH0i^f`XF1
@@ -13,24 +13,24 @@ Z6 8C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vh
 Z7 FC:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vhd
 l0
 L11
-VeVXIn^iTBHm_INZkC2lY30
+V8zT]@TUoFb<>a2Jm<db693
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1629835901.866000
+Z9 !s108 1630349749.932000
 Z10 !s90 -reportprogress|300|-93|-work|work|C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vhd|
 Z11 !s107 C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vhd|
 Z12 o-93 -work work -O0
 Z13 tExplicit 1
-!s100 1m?@DHP`:5XEDV_maCJaG3
+!s100 n5cffgTYCNC1f2n1;DLln2
 !i10b 1
 Abehaviour
 R2
 R3
 R4
-DEx4 work 8 gas_pump 0 22 eVXIn^iTBHm_INZkC2lY30
+DEx4 work 8 gas_pump 0 22 8zT]@TUoFb<>a2Jm<db693
 l30
-L23
-V14P?@fzQDmGQWaFP0hLC72
+L24
+VPHiki<Bkg2H<DNWIb<dZ<1
 R8
 31
 R9
@@ -38,10 +38,10 @@ R10
 R11
 R12
 R13
-!s100 GNl;_d`cX6g<Ke8`8I:KY3
+!s100 XDY@S0^ez`9GP33KS=R?d3
 !i10b 1
 Etb_gas_pump
-Z14 w1629835581
+Z14 w1630348054
 R2
 R3
 R4
@@ -55,7 +55,7 @@ Vz2_lI<_^o1zZ`?VhCb]z@0
 R8
 31
 !i10b 1
-Z17 !s108 1629835901.976000
+Z17 !s108 1630349750.050000
 Z18 !s90 -reportprogress|300|-93|-work|work|C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/tb_gas_pump.vhd|
 Z19 !s107 C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/tb_gas_pump.vhd|
 R12
@@ -65,10 +65,10 @@ R2
 R3
 R4
 DEx4 work 11 tb_gas_pump 0 22 z2_lI<_^o1zZ`?VhCb]z@0
-l35
+l36
 L12
-VG?bN^zKG3izjQ?T]HIEiO2
-!s100 bHfXB?G6N2J;PL?JLH8;n2
+V_e9nL2klzD0oG@XMnU<Yl1
+!s100 9oH6H4z_bBhJIR0U:^eTU0
 R8
 31
 !i10b 1

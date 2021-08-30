@@ -15,6 +15,7 @@ component gas_pump is
 		clock: in std_logic;
 		btn_continue: in std_logic;
 		fuel_type: in std_logic_vector(1 downto 0);
+		payment_amount: in std_logic_vector(7 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
 		pump: out std_logic := '0'
@@ -24,13 +25,13 @@ end component;
 
 
 
-signal clock: std_logic;
+signal clock: std_logic := '1';
 signal btn_continue:  std_logic;
 signal fuel_type:  std_logic_vector(1 downto 0);
 signal credit_input:  std_logic_vector(7 downto 0);
 signal change:  std_logic_vector(7 downto 0) := x"00";
 signal pump:  std_logic := '0';
-
+signal payment_amount: std_logic_vector(7 downto 0);
 
 begin 
 	instance_gas_pump : gas_pump port map (
@@ -39,12 +40,14 @@ begin
 		fuel_type => fuel_type ,
 		credit_input => credit_input,
 		change => change,
-		pump => pump
+		pump => pump,
+		payment_amount => payment_amount
 	
 	);
 	
-	clock <= not clock after 25 ns;
-	btn_continue <= '1' after 30 ns,'0' after 35 ns,'1' after 1000 ns, '0' after 1005 ns,'1' after 2000 ns, '0' after 2005 ns,'1' after 3000 ns, '0' after 3005 ns,'1' after 4000 ns, '0' after 4005 ns,'1' after 5000 ns, '0' after 5005 ns;
+	clock <= NOT clock after 25 ns;
+	btn_continue <= '1' after 30 ns,'0' after 35 ns,'1' after 1000 ns, '0' after 1005 ns,'1' after 2000 ns, '0' after 2005 ns,'1' after 3000 ns, '0' after 3005 ns,'1' after 4000 ns, '0' after 4005 ns;
 	fuel_type <= "01" after 30 ns;
 	credit_input <= "00100010" after 30 ns;
+	payment_amount <= "00011110";
 end test_bench;
