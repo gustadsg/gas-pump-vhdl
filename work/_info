@@ -16,7 +16,7 @@ L11
 Vf2A[<`TVT=<izLKQ1jB<b1
 Z8 OV;C;10.1d;51
 31
-Z9 !s108 1630505746.743000
+Z9 !s108 1630507265.542000
 Z10 !s90 -reportprogress|300|-explicit|-93|gas_pump.vhd|
 Z11 !s107 gas_pump.vhd|
 Z12 o-explicit -93 -O0
@@ -41,7 +41,7 @@ R13
 !s100 GaGNbFZn?`O[O44ogT7Uc0
 !i10b 1
 Etb_gas_pump
-Z14 w1630505696
+Z14 w1630507187
 Z15 DPx4 ieee 16 std_logic_textio 0 22 ?Il0a149GV276[?[UMDWh2
 R2
 R3
@@ -56,7 +56,7 @@ V^]_KH@1jNFJme;5C;EJdf2
 R8
 31
 !i10b 1
-Z18 !s108 1630505746.856000
+Z18 !s108 1630507265.642000
 Z19 !s90 -reportprogress|300|-explicit|-93|tb_gas_pump.vhd|
 Z20 !s107 tb_gas_pump.vhd|
 R12
@@ -67,10 +67,10 @@ R2
 R3
 R4
 DEx4 work 11 tb_gas_pump 0 22 ^]_KH@1jNFJme;5C;EJdf2
-l59
+l60
 L14
-V?bb^L7?U4YOJ?I3;O1mQ>0
-!s100 f?aRC`7fBMhTZk`U2<[RL3
+V7zV_JT]M=S7ob>RSeO@d_1
+!s100 D<jllOHgZg89e9fgbzg<o3
 R8
 31
 !i10b 1

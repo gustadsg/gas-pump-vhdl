@@ -45,6 +45,7 @@ constant period: time := 50 ns;
 constant offset: time := 5 ns;
 
 signal data_input : std_logic_vector(7 downto 0);
+signal data_input_payment: std_logic_vector(7 downto 0);
 signal data_output : std_logic_vector(7 downto 0);
 
 signal read_data_in : std_logic := '0';
@@ -87,6 +88,30 @@ read_input_credit_input : process
 						end loop;
 						wait;
 					end process read_input_credit_input;
+					
+	
+
+	
+
+------------------------------------------------------------------------------------
+-----------------Process to read data from payment_amount.txt file
+------------------------------------------------------------------------------------
+read_input_payment_amount : process
+						variable linha: line;
+						variable input : std_logic_vector(7 downto 0);
+						
+					begin
+						while not endfile(input_payment_amount) loop
+							if read_data_in = '1' then
+								readline(input_payment_amount,linha);
+									read(linha,input);
+									data_input_payment <= input;
+							end if;
+							wait for period;
+						end loop;
+						wait;
+					end process read_input_payment_amount;
+
 
 
 					
@@ -98,7 +123,7 @@ tb_stimulus: process
 	begin
 	wait for (period);
 		read_data_in <='1';
-					
+		
 					wait for period;
 				
 		read_data_in <= '0';
@@ -178,6 +203,6 @@ write_output_change: process
 	btn_continue <= '1' after 30 ns,'0' after 35 ns,'1' after 1000 ns, '0' after 1005 ns,'1' after 2000 ns, '0' after 2005 ns,'1' after 3000 ns, '0' after 3005 ns,'1' after 4000 ns, '0' after 4005 ns;
 	fuel_type <= "01" after 30 ns;
 	credit_input <= data_input;
-	payment_amount <= "00011110";
 	data_output <= change;
+	payment_amount <= data_input_payment;
 end test_bench;
