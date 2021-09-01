@@ -16,7 +16,8 @@ entity gas_pump is
 		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
+		pump: out std_logic := '0';
+		total_consumption: out integer := 0
 	);
 end gas_pump;
 
@@ -85,6 +86,7 @@ signal current_state : states := idle;
 							
 							when payment_selection =>
 								fuel_amount := to_integer(unsigned(payment_amount)/unsigned(selected_fuel));
+								total_consumption <= fuel_amount; 
 								fuel_amount := fuel_amount * 100000;
 								report "O tanto de combusta meu fi: "& integer'image(fuel_amount);
 								report "SALVE SALVE FAMILIA: "& integer'image(flow_rate);

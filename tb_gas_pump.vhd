@@ -20,7 +20,8 @@ component gas_pump is
 		payment_amount: in std_logic_vector(7 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
+		pump: out std_logic := '0';
+		total_consumption: out integer
 	
 	);
 end component;
@@ -36,6 +37,7 @@ signal credit_input:  std_logic_vector(7 downto 0);
 signal change:  std_logic_vector(7 downto 0) := x"00";
 signal aux_pump:  std_logic := '0';
 signal payment_amount: std_logic_vector(7 downto 0);
+signal total_consumption: integer;
 
 constant max_value : natural := 3;
 constant min_value : natural := 1;
@@ -62,7 +64,8 @@ begin
 		credit_input => credit_input,
 		change => change,
 		pump => aux_pump,
-		payment_amount => payment_amount
+		payment_amount => payment_amount,
+		total_consumption => total_consumption
 	
 	);
 	
@@ -133,12 +136,14 @@ write_output: process(aux_pump, clock)
 write_output_change: process
 
 		constant thank_you_text : string := "Muito obrigado por escolher o Posto do Gustavinho!";
-		constant inserted_value_text : string := "Voce inseriu R$" ;
+		constant inserted_value_text : string := " Voce inseriu R$" ;
 		constant change_value_text : string := "! Seu troco é de R$";
+		constant consumption_text : string := ". O total abastecido, em litros, foi de: ";
 		variable linha	: line;
 		variable output	:	std_logic_vector(7 downto 0);
 		variable change_value: integer;
 		variable inserted_value: integer;
+		
 	begin
 		while true loop
 			if(flag_write = '1') then 
@@ -148,12 +153,14 @@ write_output_change: process
 					
 					write(linha,thank_you_text,right,0);
 					
-					write(linha,inserted_value_text);
+					write(linha,inserted_value_text,right,0);
 					write(linha,inserted_value,right,0);
 					
-					write(linha,change_value_text);
+					write(linha,change_value_text,right,0);
 					write(linha,change_value,right,0);
 					
+					write(linha,consumption_text,right,0);
+					write(linha,total_consumption,right,0);
 					
 					writeline(output_change,linha);
 			end if;

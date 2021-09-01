@@ -1,5 +1,5 @@
 Analysis & Synthesis report for gas-pump
-Wed Sep 01 10:21:28 2021
+Wed Sep 01 11:10:19 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -18,8 +18,9 @@ Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edit
  10. Removed Registers Triggering Further Register Optimizations
  11. General Register Statistics
  12. Multiplexer Restructuring Statistics (Restructuring Performed)
- 13. Elapsed Time Per Partition
- 14. Analysis & Synthesis Messages
+ 13. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 14. Elapsed Time Per Partition
+ 15. Analysis & Synthesis Messages
 
 
 
@@ -45,16 +46,16 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Sep 01 10:21:28 2021           ;
+; Analysis & Synthesis Status        ; Successful - Wed Sep 01 11:10:19 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; gas-pump                                        ;
 ; Top-level Entity Name              ; gas_pump                                        ;
 ; Family                             ; Cyclone II                                      ;
-; Total logic elements               ; 23                                              ;
-;     Total combinational functions  ; 20                                              ;
-;     Dedicated logic registers      ; 15                                              ;
-; Total registers                    ; 15                                              ;
-; Total pins                         ; 29                                              ;
+; Total logic elements               ; 102                                             ;
+;     Total combinational functions  ; 99                                              ;
+;     Dedicated logic registers      ; 26                                              ;
+; Total registers                    ; 26                                              ;
+; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -158,13 +159,22 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +----------------------------+--------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type       ; File Name with Absolute Path                                                  ; Library ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
-; gas_pump.vhd                     ; yes             ; User VHDL File  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vhd ;         ;
-+----------------------------------+-----------------+-----------------+-------------------------------------------------------------------------------+---------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                    ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                                ; Library ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
+; gas_pump.vhd                     ; yes             ; User VHDL File               ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/gas_pump.vhd               ;         ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/lpm_divide.tdf                            ;         ;
+; abs_divider.inc                  ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/abs_divider.inc                           ;         ;
+; sign_div_unsign.inc              ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/sign_div_unsign.inc                       ;         ;
+; aglobal130.inc                   ; yes             ; Megafunction                 ; c:/altera/13.0sp1/quartus/libraries/megafunctions/aglobal130.inc                            ;         ;
+; db/lpm_divide_5dm.tdf            ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/db/lpm_divide_5dm.tdf      ;         ;
+; db/sign_div_unsign_fkh.tdf       ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/db/sign_div_unsign_fkh.tdf ;         ;
+; db/alt_u_div_00f.tdf             ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/db/alt_u_div_00f.tdf       ;         ;
+; db/add_sub_lkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/db/add_sub_lkc.tdf         ;         ;
+; db/add_sub_mkc.tdf               ; yes             ; Auto-Generated Megafunction  ; C:/Users/danie/OneDrive/햞ea de Trabalho/Lab de SD/gas-pump-vhdl/db/add_sub_mkc.tdf         ;         ;
++----------------------------------+-----------------+------------------------------+---------------------------------------------------------------------------------------------+---------+
 
 
 +-----------------------------------------------------+
@@ -172,38 +182,42 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+-------+
 ; Resource                                    ; Usage ;
 +---------------------------------------------+-------+
-; Estimated Total logic elements              ; 23    ;
+; Estimated Total logic elements              ; 102   ;
 ;                                             ;       ;
-; Total combinational functions               ; 20    ;
+; Total combinational functions               ; 99    ;
 ; Logic element usage by number of LUT inputs ;       ;
-;     -- 4 input functions                    ; 1     ;
-;     -- 3 input functions                    ; 8     ;
-;     -- <=2 input functions                  ; 11    ;
+;     -- 4 input functions                    ; 18    ;
+;     -- 3 input functions                    ; 56    ;
+;     -- <=2 input functions                  ; 25    ;
 ;                                             ;       ;
 ; Logic elements by mode                      ;       ;
-;     -- normal mode                          ; 13    ;
-;     -- arithmetic mode                      ; 7     ;
+;     -- normal mode                          ; 59    ;
+;     -- arithmetic mode                      ; 40    ;
 ;                                             ;       ;
-; Total registers                             ; 15    ;
-;     -- Dedicated logic registers            ; 15    ;
+; Total registers                             ; 26    ;
+;     -- Dedicated logic registers            ; 26    ;
 ;     -- I/O registers                        ; 0     ;
 ;                                             ;       ;
-; I/O pins                                    ; 29    ;
+; I/O pins                                    ; 61    ;
 ; Embedded Multiplier 9-bit elements          ; 0     ;
 ; Maximum fan-out node                        ; clock ;
-; Maximum fan-out                             ; 15    ;
-; Total fan-out                               ; 107   ;
-; Average fan-out                             ; 1.67  ;
+; Maximum fan-out                             ; 26    ;
+; Total fan-out                               ; 364   ;
+; Average fan-out                             ; 1.96  ;
 +---------------------------------------------+-------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; Compilation Hierarchy Node ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name ; Library Name ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
-; |gas_pump                  ; 20 (20)           ; 15 (15)      ; 0           ; 0            ; 0       ; 0         ; 29   ; 0            ; |gas_pump           ; work         ;
-+----------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+---------------------+--------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                           ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                       ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
+; |gas_pump                              ; 99 (29)           ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 61   ; 0            ; |gas_pump                                                                                                 ; work         ;
+;    |lpm_divide:Div0|                   ; 70 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0                                                                                 ; work         ;
+;       |lpm_divide_5dm:auto_generated|  ; 70 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0|lpm_divide_5dm:auto_generated                                                   ; work         ;
+;          |sign_div_unsign_fkh:divider| ; 70 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_fkh:divider                       ; work         ;
+;             |alt_u_div_00f:divider|    ; 70 (70)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |gas_pump|lpm_divide:Div0|lpm_divide_5dm:auto_generated|sign_div_unsign_fkh:divider|alt_u_div_00f:divider ; work         ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-----------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
 
@@ -251,10 +265,34 @@ Encoding Type:  One-Hot
 ; \main:fuel_price[2][2]                 ; Stuck at VCC due to stuck port data_in ;
 ; \main:fuel_price[2][1]                 ; Stuck at GND due to stuck port data_in ;
 ; \main:fuel_price[2][0]                 ; Stuck at GND due to stuck port data_in ;
+; total_consumption[31]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[30]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[29]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[28]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[27]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[26]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[25]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[24]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[23]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[22]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[21]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[20]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[19]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[18]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[17]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[16]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[15]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[14]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[13]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[12]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[11]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[10]~reg0             ; Stuck at GND due to stuck port data_in ;
+; total_consumption[9]~reg0              ; Stuck at GND due to stuck port data_in ;
+; total_consumption[8]~reg0              ; Stuck at GND due to stuck port data_in ;
 ; \main:selected_fuel[5..7]              ; Merged with \main:selected_fuel[4]     ;
 ; \main:selected_fuel[3]                 ; Merged with \main:selected_fuel[1]     ;
-; \main:selected_fuel[0..2,4]            ; Lost fanout                            ;
-; Total Number of Removed Registers = 32 ;                                        ;
+; \main:selected_fuel[4]                 ; Stuck at GND due to stuck port data_in ;
+; Total Number of Removed Registers = 53 ;                                        ;
 +----------------------------------------+----------------------------------------+
 
 
@@ -263,7 +301,7 @@ Encoding Type:  One-Hot
 +------------------------+---------------------------+----------------------------------------+
 ; Register name          ; Reason for Removal        ; Registers Removed due to This Register ;
 +------------------------+---------------------------+----------------------------------------+
-; \main:fuel_price[0][7] ; Stuck at GND              ; \main:selected_fuel[2]                 ;
+; \main:fuel_price[0][4] ; Stuck at GND              ; \main:selected_fuel[4]                 ;
 ;                        ; due to stuck port data_in ;                                        ;
 +------------------------+---------------------------+----------------------------------------+
 
@@ -273,12 +311,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 15    ;
+; Total registers                              ; 26    ;
 ; Number of registers using Synchronous Clear  ; 0     ;
-; Number of registers using Synchronous Load   ; 8     ;
+; Number of registers using Synchronous Load   ; 0     ;
 ; Number of registers using Asynchronous Clear ; 0     ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 3     ;
+; Number of registers using Clock Enable       ; 22    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -288,8 +326,32 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |gas_pump|Selector17       ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |gas_pump|selected_fuel    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |gas_pump|Selector9        ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+----------------------------+
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 8              ; Untyped                ;
+; LPM_WIDTHD             ; 8              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_5dm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
 +-------------------------------+
@@ -297,7 +359,7 @@ Encoding Type:  One-Hot
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:00     ;
+; Top            ; 00:00:01     ;
 +----------------+--------------+
 
 
@@ -307,7 +369,7 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
-    Info: Processing started: Wed Sep 01 10:21:26 2021
+    Info: Processing started: Wed Sep 01 11:10:17 2021
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off gas-pump -c gas-pump
 Warning (20028): Parallel compilation is not licensed and has been disabled
 Info (12021): Found 2 design units, including 1 entities, in source file gas_pump.vhd
@@ -317,22 +379,61 @@ Info (12021): Found 2 design units, including 1 entities, in source file tb_gas_
     Info (12022): Found design unit 1: tb_gas_pump-test_bench
     Info (12023): Found entity 1: tb_gas_pump
 Info (12127): Elaborating entity "gas_pump" for the top level hierarchy
-Warning (10036): Verilog HDL or VHDL warning at gas_pump.vhd(34): object "current_credit" assigned a value but never read
-Warning (10542): VHDL Variable Declaration warning at gas_pump.vhd(38): used initial value expression for variable "flow_rate" because variable was never assigned a value
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
+Warning (10036): Verilog HDL or VHDL warning at gas_pump.vhd(35): object "current_credit" assigned a value but never read
+Warning (10542): VHDL Variable Declaration warning at gas_pump.vhd(39): used initial value expression for variable "flow_rate" because variable was never assigned a value
+Info (278001): Inferred 1 megafunctions from design logic
+    Info (278004): Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+Info (12130): Elaborated megafunction instantiation "lpm_divide:Div0"
+Info (12133): Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info (12134): Parameter "LPM_WIDTHN" = "8"
+    Info (12134): Parameter "LPM_WIDTHD" = "8"
+    Info (12134): Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info (12134): Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info (12021): Found 1 design units, including 1 entities, in source file db/lpm_divide_5dm.tdf
+    Info (12023): Found entity 1: lpm_divide_5dm
+Info (12021): Found 1 design units, including 1 entities, in source file db/sign_div_unsign_fkh.tdf
+    Info (12023): Found entity 1: sign_div_unsign_fkh
+Info (12021): Found 1 design units, including 1 entities, in source file db/alt_u_div_00f.tdf
+    Info (12023): Found entity 1: alt_u_div_00f
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_lkc.tdf
+    Info (12023): Found entity 1: add_sub_lkc
+Info (12021): Found 1 design units, including 1 entities, in source file db/add_sub_mkc.tdf
+    Info (12023): Found entity 1: add_sub_mkc
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "total_consumption[8]" is stuck at GND
+    Warning (13410): Pin "total_consumption[9]" is stuck at GND
+    Warning (13410): Pin "total_consumption[10]" is stuck at GND
+    Warning (13410): Pin "total_consumption[11]" is stuck at GND
+    Warning (13410): Pin "total_consumption[12]" is stuck at GND
+    Warning (13410): Pin "total_consumption[13]" is stuck at GND
+    Warning (13410): Pin "total_consumption[14]" is stuck at GND
+    Warning (13410): Pin "total_consumption[15]" is stuck at GND
+    Warning (13410): Pin "total_consumption[16]" is stuck at GND
+    Warning (13410): Pin "total_consumption[17]" is stuck at GND
+    Warning (13410): Pin "total_consumption[18]" is stuck at GND
+    Warning (13410): Pin "total_consumption[19]" is stuck at GND
+    Warning (13410): Pin "total_consumption[20]" is stuck at GND
+    Warning (13410): Pin "total_consumption[21]" is stuck at GND
+    Warning (13410): Pin "total_consumption[22]" is stuck at GND
+    Warning (13410): Pin "total_consumption[23]" is stuck at GND
+    Warning (13410): Pin "total_consumption[24]" is stuck at GND
+    Warning (13410): Pin "total_consumption[25]" is stuck at GND
+    Warning (13410): Pin "total_consumption[26]" is stuck at GND
+    Warning (13410): Pin "total_consumption[27]" is stuck at GND
+    Warning (13410): Pin "total_consumption[28]" is stuck at GND
+    Warning (13410): Pin "total_consumption[29]" is stuck at GND
+    Warning (13410): Pin "total_consumption[30]" is stuck at GND
+    Warning (13410): Pin "total_consumption[31]" is stuck at GND
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Warning (21074): Design contains 2 input pin(s) that do not drive logic
-    Warning (15610): No output dependent on input pin "fuel_type[0]"
-    Warning (15610): No output dependent on input pin "fuel_type[1]"
-Info (21057): Implemented 52 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 163 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 20 input pins
-    Info (21059): Implemented 9 output pins
-    Info (21061): Implemented 23 logic cells
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 6 warnings
-    Info: Peak virtual memory: 4643 megabytes
-    Info: Processing ended: Wed Sep 01 10:21:28 2021
+    Info (21059): Implemented 41 output pins
+    Info (21061): Implemented 102 logic cells
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 28 warnings
+    Info: Peak virtual memory: 4636 megabytes
+    Info: Processing ended: Wed Sep 01 11:10:19 2021
     Info: Elapsed time: 00:00:02
-    Info: Total CPU time (on all processors): 00:00:02
+    Info: Total CPU time (on all processors): 00:00:03
 
 
