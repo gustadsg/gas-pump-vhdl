@@ -46,6 +46,7 @@ constant offset: time := 5 ns;
 
 signal data_input : std_logic_vector(7 downto 0);
 signal data_input_payment: std_logic_vector(7 downto 0);
+signal data_input_fuel: std_logic_vector(1 downto 0);
 signal data_output : std_logic_vector(7 downto 0);
 
 signal read_data_in : std_logic := '0';
@@ -54,6 +55,7 @@ signal flag_write : std_logic := '0';
 
 file input_credit_input : text open read_mode is "credit_input.txt";
 file input_payment_amount : text open read_mode is "payment_amount.txt";
+file input_fuel_selection : text open read_mode is "fuel_selection.txt";
 
 file output_change: text open write_mode is "output_change.txt";
 
@@ -114,7 +116,24 @@ read_input_payment_amount : process
 
 
 
-					
+------------------------------------------------------------------------------------
+-----------------Process to read data from fuel_selection.txt file
+------------------------------------------------------------------------------------
+read_input_fuel_selection : process
+						variable linha: line;
+						variable input : std_logic_vector(1 downto 0);
+						
+					begin
+						while not endfile(input_fuel_selection) loop
+							if read_data_in = '1' then
+								readline(input_fuel_selection,linha);
+									read(linha,input);
+									data_input_fuel <= input;
+							end if;
+							wait for period;
+						end loop;
+						wait;
+					end process read_input_fuel_selection;
 					
 ------------------------------------------------------------------------------------
 ----------------- Stimulus to read data from files 
@@ -161,13 +180,17 @@ write_output: process(aux_pump, clock)
 write_output_change: process
 
 		constant thank_you_text : string := "Muito obrigado por escolher o Posto do Gustavinho!";
-		constant inserted_value_text : string := " Voce inseriu R$" ;
+		constant inserted_value_text : string := " Voce inseriu R$ " ;
+		constant payment_amount_text : string := ". Voce tentou gastar R$ ";
 		constant change_value_text : string := "! Seu troco é de R$";
+		constant fuel_type_text : string := ". O combustível selecionado foi: ";
 		constant consumption_text : string := ". O total abastecido, em litros, foi de: ";
+		-- VARIABLE fuel_type_value : string := "undefined";
 		variable linha	: line;
 		variable output	:	std_logic_vector(7 downto 0);
 		variable change_value: integer;
 		variable inserted_value: integer;
+		variable payment_value: integer;
 		
 	begin
 		while true loop
@@ -175,17 +198,27 @@ write_output_change: process
 					output := data_output;
 					change_value := to_integer(unsigned(output));
 					inserted_value := to_integer(unsigned(credit_input));
+					payment_value := to_integer(unsigned(payment_amount));
 					
 					write(linha,thank_you_text,right,0);
 					
 					write(linha,inserted_value_text,right,0);
 					write(linha,inserted_value,right,0);
 					
+					write(linha,payment_amount_text,right,0);
+					write(linha,payment_value,right,0);
+					
 					write(linha,change_value_text,right,0);
 					write(linha,change_value,right,0);
 					
+					
+					
+					write(linha,fuel_type_text,right,0);
+					write(linha,fuel_type,right,0);
+					
 					write(linha,consumption_text,right,0);
-					write(linha,total_consumption,right,0);
+					write(linha,total_consumption,right,0);			
+					
 					
 					writeline(output_change,linha);
 			end if;
@@ -201,8 +234,8 @@ write_output_change: process
 	
 	clock <= NOT clock after 25 ns;
 	btn_continue <= '1' after 30 ns,'0' after 35 ns,'1' after 1000 ns, '0' after 1005 ns,'1' after 2000 ns, '0' after 2005 ns,'1' after 3000 ns, '0' after 3005 ns,'1' after 4000 ns, '0' after 4005 ns;
-	fuel_type <= "01" after 30 ns;
 	credit_input <= data_input;
 	data_output <= change;
 	payment_amount <= data_input_payment;
+	fuel_type <= data_input_fuel;
 end test_bench;
