@@ -50,7 +50,7 @@ signal current_state : states := idle;
 								fuel_price(0) := "00001010";
 								fuel_price(1) := "00000101";
 								fuel_price(2) := "00000100";
-								change <= x"00";
+								--change <= x"00";
 								selected_fuel := x"00";
 								pump <= '0';
 								if (btn_continue = '1') then 
@@ -104,7 +104,7 @@ signal current_state : states := idle;
 								
 							when give_change =>
 								change <= std_logic_vector(unsigned(credit_input) - unsigned(payment_amount));
-								current_state <= idle ;
+								current_state <= idle after 75 ns ;
 						end case;
 					end if;
 					
