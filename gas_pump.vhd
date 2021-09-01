@@ -12,32 +12,35 @@ entity gas_pump is
 	port(
 		clock: in std_logic;
 		btn_continue: in std_logic;
+		payment_amount: in std_logic_vector(7 downto 0);
 		fuel_type: in std_logic_vector(1 downto 0);
 		credit_input: in std_logic_vector(7 downto 0);
 		change: out std_logic_vector(7 downto 0) := x"00";
-		pump: out std_logic := '0'
+		pump: out std_logic := '0';
+		total_consumption: out integer := 0
 	);
 end gas_pump;
 
 
 architecture behaviour of gas_pump is
 	
-type states is (idle, payment, fuel_selection, fueling, comparator, give_change);
+type states is (idle, payment, payment_selection, fuel_selection, fueling, give_change);
 type fuel is array (0 to 2) of std_logic_vector(7 downto 0);
 signal current_state : states := idle;	
-signal comparator_clock : std_logic := '0';
 	
 	begin
 		
 		main : process (clock, btn_continue, fuel_type, credit_input, current_state)
 		
-				variable current_credit : std_logic_vector(7 downto 0); 	
+				variable user_credit : std_logic_vector(7 downto 0) := payment_amount; 	
 				variable aux_current_credit : std_logic_vector(23 downto 0);
 				variable fuel_price : fuel;
 				variable selected_fuel : std_logic_vector(7 downto 0);
-				variable flow_rate : std_logic_vector(7 downto 0) := "00010100";
+				variable flow_rate : integer := 100; -- 1l /ns for easier simulation
 				variable verification_period : std_logic_vector(7 downto 0) := "11111010";
-				
+				variable fuel_amount : integer ;
+				variable fuel_time: time ;
+				variable tempo: time;
 				begin	
 				
 					if(rising_edge(clock)) then 
@@ -48,7 +51,6 @@ signal comparator_clock : std_logic := '0';
 								fuel_price(0) := "00001010";
 								fuel_price(1) := "00000101";
 								fuel_price(2) := "00000100";
-								change <= x"00";
 								selected_fuel := x"00";
 								pump <= '0';
 								if (btn_continue = '1') then 
@@ -58,7 +60,6 @@ signal comparator_clock : std_logic := '0';
 								
 							
 							when payment =>
-								current_credit := credit_input;
 								if(btn_continue = '1') then	
 									current_state <= fuel_selection;
 								end if;
@@ -77,51 +78,48 @@ signal comparator_clock : std_logic := '0';
 									
 								end if;
 								if(btn_continue = '1' and selected_fuel /= x"11") then 
-									current_state <= fueling;
+									current_state <= payment_selection;
+								else
+									selected_fuel := fuel_price(0);
 								end if;
 								
+							
+							when payment_selection =>
+								user_credit := payment_amount;
+								-- user cant have more credit than the money he inserted
+								if(user_credit > credit_input) then
+									user_credit := credit_input;
+								end if;
+							
+							
+							
+							
+								fuel_amount := to_integer(unsigned(user_credit)/unsigned(selected_fuel));
+								total_consumption <= fuel_amount; 
+								fuel_amount := fuel_amount * 100000;
+								report "O tanto de combusta meu fi: "& integer'image(fuel_amount);
+								report "SALVE SALVE FAMILIA: "& integer'image(flow_rate);
+								fuel_time := (fuel_amount/flow_rate)*1 ns;
 								
+								report "TEMPOOOOOOOO: "& time'image(fuel_time);
+								
+								if(btn_continue = '1') then	
+									current_state <= fueling;
+								end if;
 								
 							when fueling =>
 								pump <= '1';
-								if(comparator_clock = '1') then
-								current_state <= comparator;
-								end if;
-							
-							
-							when comparator => 
-								aux_current_credit := std_logic_vector((unsigned(current_credit)) - ((unsigned(flow_rate)*unsigned(verification_period)*unsigned(selected_fuel))/1000));
-								current_credit := aux_current_credit(7 downto 0);
-								if(btn_continue = '1') then
-									pump <= '0';
-									current_state <= give_change;
-									
-								elsif(to_integer(unsigned(current_credit)) <= 0) then 
-									pump <= '0';
-									current_state <= idle;
-									
-								else
-									current_state <= fueling;
-									
-								end if;
+								current_state <= give_change after fuel_time;
 								
 								
 								
 							when give_change =>
-								change <= current_credit;
-								current_state <= idle;
+								change <= std_logic_vector(unsigned(credit_input) - unsigned(user_credit));
+								current_state <= idle after 75 ns ;
 						end case;
 					end if;
 					
 
 		end process main;
-		
-		
-		aux : process(comparator_clock)
-			begin
-				comparator_clock <= not comparator_clock after 250 ms;
-				
-			end process aux;
-			
 			
 	end behaviour;

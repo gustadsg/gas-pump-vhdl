@@ -42,4 +42,124 @@
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 6000 ns
+# run 20000 ns
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3050 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3050 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3050 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3100 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3100 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3100 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3150 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3150 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3150 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3200 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3200 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3200 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3250 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3250 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3250 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3300 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3300 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3300 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3350 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3350 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3350 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3400 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3400 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3400 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3450 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3450 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3450 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3500 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3500 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3500 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3550 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3550 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3550 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3600 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3600 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3600 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3650 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3650 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3650 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3700 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3750 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3750 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3750 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3800 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3800 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3800 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3850 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3850 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3850 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3900 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3900 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3900 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 3950 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 3950 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 3950 ns  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: O tanto de combusta meu fi: 600000
+#    Time: 4 us  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: SALVE SALVE FAMILIA: 100
+#    Time: 4 us  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump
+# ** Note: TEMPOOOOOOOO: 6000000 ps
+#    Time: 4 us  Iteration: 0  Instance: /tb_gas_pump/instance_gas_pump

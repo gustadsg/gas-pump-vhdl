@@ -1,5 +1,5 @@
 Flow report for gas-pump
-Tue Aug 24 16:42:08 2021
+Wed Sep 01 18:16:52 2021
 Quartus II 64-Bit Version 13.0.1 Build 232 06/12/2013 Service Pack 1 SJ Web Edition
 
 
@@ -40,18 +40,18 @@ applicable agreement for further details.
 +--------------------------------------------------------------------------------------+
 ; Flow Summary                                                                         ;
 +------------------------------------+-------------------------------------------------+
-; Flow Status                        ; Successful - Tue Aug 24 16:42:08 2021           ;
+; Flow Status                        ; Successful - Wed Sep 01 18:16:52 2021           ;
 ; Quartus II 64-Bit Version          ; 13.0.1 Build 232 06/12/2013 SP 1 SJ Web Edition ;
 ; Revision Name                      ; gas-pump                                        ;
 ; Top-level Entity Name              ; gas_pump                                        ;
 ; Family                             ; Cyclone II                                      ;
 ; Device                             ; EP2C35F672C6                                    ;
 ; Timing Models                      ; Final                                           ;
-; Total logic elements               ; 196                                             ;
-;     Total combinational functions  ; 195                                             ;
-;     Dedicated logic registers      ; 26                                              ;
-; Total registers                    ; 26                                              ;
-; Total pins                         ; 21                                              ;
+; Total logic elements               ; 120                                             ;
+;     Total combinational functions  ; 117                                             ;
+;     Dedicated logic registers      ; 34                                              ;
+; Total registers                    ; 34                                              ;
+; Total pins                         ; 61                                              ;
 ; Total virtual pins                 ; 0                                               ;
 ; Total memory bits                  ; 0                                               ;
 ; Embedded Multiplier 9-bit elements ; 0                                               ;
@@ -64,28 +64,37 @@ applicable agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 08/24/2021 16:42:05 ;
+; Start date & time ; 09/01/2021 18:16:50 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; gas-pump            ;
 +-------------------+---------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------+
-; Flow Non-Default Global Settings                                                                                   ;
-+-------------------------------------+-------------------------------+---------------+-------------+----------------+
-; Assignment Name                     ; Value                         ; Default Value ; Entity Name ; Section Id     ;
-+-------------------------------------+-------------------------------+---------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 9447189716731.162983412520284 ; --            ; --          ; --             ;
-; EDA_OUTPUT_DATA_FORMAT              ; Vhdl                          ; --            ; --          ; eda_simulation ;
-; EDA_SIMULATION_TOOL                 ; ModelSim-Altera (VHDL)        ; <None>        ; --          ; --             ;
-; MAX_CORE_JUNCTION_TEMP              ; 85                            ; --            ; --          ; --             ;
-; MIN_CORE_JUNCTION_TEMP              ; 0                             ; --            ; --          ; --             ;
-; PARTITION_COLOR                     ; 16764057                      ; --            ; gas_pump    ; Top            ;
-; PARTITION_FITTER_PRESERVATION_LEVEL ; PLACEMENT_AND_ROUTING         ; --            ; gas_pump    ; Top            ;
-; PARTITION_NETLIST_TYPE              ; SOURCE                        ; --            ; gas_pump    ; Top            ;
-; PROJECT_OUTPUT_DIRECTORY            ; output_files                  ; --            ; --          ; --             ;
-; TOP_LEVEL_ENTITY                    ; gas_pump                      ; gas-pump      ; --          ; --             ;
-+-------------------------------------+-------------------------------+---------------+-------------+----------------+
++-----------------------------------------------------------------------------------------------------------------------------+
+; Flow Non-Default Global Settings                                                                                            ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; Assignment Name                      ; Value                                 ; Default Value ; Entity Name ; Section Id     ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
+; COMPILER_SIGNATURE_ID                ; 202883601317573.163053101002084       ; --            ; --          ; --             ;
+; EDA_DESIGN_INSTANCE_NAME             ; NA                                    ; --            ; --          ; tb_gas_pump    ;
+; EDA_NATIVELINK_SIMULATION_TEST_BENCH ; tb_gas_pump                           ; --            ; --          ; eda_simulation ;
+; EDA_OUTPUT_DATA_FORMAT               ; Vhdl                                  ; --            ; --          ; eda_simulation ;
+; EDA_SIMULATION_TOOL                  ; ModelSim-Altera (VHDL)                ; <None>        ; --          ; --             ;
+; EDA_TEST_BENCH_ENABLE_STATUS         ; TEST_BENCH_MODE                       ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_FILE                  ; tb_gas_pump.vhd                       ; --            ; --          ; tb_gas_pump    ;
+; EDA_TEST_BENCH_MODULE_NAME           ; tb_gas_pump                           ; --            ; --          ; tb_gas_pump    ;
+; EDA_TEST_BENCH_NAME                  ; tb_gas_pump                           ; --            ; --          ; eda_simulation ;
+; EDA_TEST_BENCH_RUN_SIM_FOR           ; 20000 ns                              ; --            ; --          ; tb_gas_pump    ;
+; MAX_CORE_JUNCTION_TEMP               ; 85                                    ; --            ; --          ; --             ;
+; MIN_CORE_JUNCTION_TEMP               ; 0                                     ; --            ; --          ; --             ;
+; PARTITION_COLOR                      ; 16764057                              ; --            ; gas_pump    ; Top            ;
+; PARTITION_FITTER_PRESERVATION_LEVEL  ; PLACEMENT_AND_ROUTING                 ; --            ; gas_pump    ; Top            ;
+; PARTITION_NETLIST_TYPE               ; SOURCE                                ; --            ; gas_pump    ; Top            ;
+; POWER_BOARD_THERMAL_MODEL            ; None (CONSERVATIVE)                   ; --            ; --          ; --             ;
+; POWER_PRESET_COOLING_SOLUTION        ; 23 MM HEAT SINK WITH 200 LFPM AIRFLOW ; --            ; --          ; --             ;
+; PROJECT_OUTPUT_DIRECTORY             ; output_files                          ; --            ; --          ; --             ;
+; TOP_LEVEL_ENTITY                     ; gas_pump                              ; gas-pump      ; --          ; --             ;
++--------------------------------------+---------------------------------------+---------------+-------------+----------------+
 
 
 +--------------------------------------------------------------------------------------------------------------------------+
@@ -93,8 +102,8 @@ applicable agreement for further details.
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name          ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 4656 MB             ; 00:00:03                           ;
-; Total                ; 00:00:03     ; --                      ; --                  ; 00:00:03                           ;
+; Analysis & Synthesis ; 00:00:03     ; 1.0                     ; 4648 MB             ; 00:00:02                           ;
+; Total                ; 00:00:03     ; --                      ; --                  ; 00:00:02                           ;
 +----------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 
@@ -103,7 +112,7 @@ applicable agreement for further details.
 +----------------------+------------------+-----------+------------+----------------+
 ; Module Name          ; Machine Hostname ; OS Name   ; OS Version ; Processor type ;
 +----------------------+------------------+-----------+------------+----------------+
-; Analysis & Synthesis ; LAPTOP-Q17AO3A6  ; Windows 7 ; 6.2        ; x86_64         ;
+; Analysis & Synthesis ; DESKTOP-20QATRE  ; Windows 7 ; 6.2        ; x86_64         ;
 +----------------------+------------------+-----------+------------+----------------+
 
 
